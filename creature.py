@@ -12,6 +12,7 @@ hero_rev = py.transform.flip(hero, True, False)
 
 
 
+
 class Hero:
     def __init__(self, coor, screen):
         self.x, self.y = coor[0], coor[1]
