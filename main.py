@@ -1,8 +1,10 @@
 import pygame as py
+import pygame.image
 from pygame import mixer
 import polya, creature
 import matriz
-
+from fight import fight_scene
+from fight_creatures import hero_fight
 Width = 1000
 Heigth = 800
 FPS = 30
@@ -22,11 +24,18 @@ screen = py.display.set_mode((Width, Heigth))
 py.display.set_caption("RogueLike")
 clock = py.time.Clock()
 
+pic = pygame.image.load("data/player.png")
+pic = pygame.transform.scale(pic, (150, 150))
+
 
 running = True
 her = creature.Hero((0, 0), screen)
 spis = matriz.sozd([1, 1], [10, 8], her, screen)
 her.take_matriz(spis)
+
+hero_cl = hero_fight(screen)
+hero_cl.preparation(0, [[6, "фигня", 2, "mag"], [10, "не очень фигня", 5, "phis"], [15, "pryam mosh", 5, "mag"]], pic)
+fight_scene(screen, clock, FPS, [], hero_cl)
 while running:
     screen.fill((0, 0, 0))
     clock.tick(FPS)

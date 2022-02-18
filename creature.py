@@ -11,8 +11,6 @@ hero_rev = py.transform.flip(hero, True, False)
 #monster1 = py.transform.scale(monster1, 100, 100)
 
 
-
-
 class Hero:
     def __init__(self, coor, screen):
         self.x, self.y = coor[0], coor[1]
